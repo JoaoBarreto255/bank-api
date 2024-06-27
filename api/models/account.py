@@ -11,3 +11,6 @@ class Account:
 
     account_id: str
     balance: int
+
+    def to_dict(self):
+        return {"id": self.account_id, "balance": self.balance}
