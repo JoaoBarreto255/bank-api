@@ -17,7 +17,9 @@ async def reset(account_repository=Depends(get_account_repository)):
 
 @BALANCES_ROUTER.get("/balances", status_code=200, response_class=Response)
 async def balances(
-    response: Response, account_id: str = None, account_repository=Depends(get_account_repository)
+    response: Response,
+    account_id: str = None,
+    account_repository=Depends(get_account_repository),
 ) -> str:
     if result := account_repository.find_account(account_id):
         return str(result.balance)

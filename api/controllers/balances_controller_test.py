@@ -20,12 +20,13 @@ def test_post_reset() -> None:
     assert response.text == "OK"
 
     assert accounts.find_account("foo") is None
-    
+
+
 def test_get_balances() -> None:
     response = client.get("/balances?account_id=baz")
     assert response.status_code == 404
     assert response.text == "0"
-    
+
     accounts.save_account(Account("baz", 20))
     response = client.get("/balances?account_id=baz")
     assert response.status_code == 200
