@@ -2,11 +2,12 @@
 Account model
 """
 
+from dataclasses import dataclass
 
-@dataclasses
+
+@dataclass
 class Account:
     """Client accounts"""
-    
+
     account_id: str
     balance: int
-
