@@ -2,7 +2,8 @@
 Repository of accounts
 """
 
-from typing import Optional, Self
+from typing import Optional, Self, Annotated
+from fastapi import Depends
 from api.models.account import Account
 
 
@@ -41,3 +42,8 @@ class AccountRepository:
 
 def get_account_repository() -> AccountRepository:
     return AccountRepository.get_instance()
+
+
+AccountRepositoryManager = Annotated[
+    AccountRepository, Depends(get_account_repository)
+]

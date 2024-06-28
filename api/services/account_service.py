@@ -8,7 +8,7 @@ from typing import Annotated
 from api.models.account import Account
 from api.repositories.account_repository import (
     AccountRepository,
-    get_account_repository,
+    AccountRepositoryManager,
 )
 
 
@@ -58,14 +58,10 @@ class AccountService:
         return account.to_dict()
 
 
-def factory_account_service(
-    account_repository: Annotated[
-        AccountRepository, Depends(get_account_repository)
-    ]
-):
+def factory_account_service(account_repository: AccountRepositoryManager):
     return AccountService(account_repository)
 
 
-AccountServiceDependecy = Annotated[
+AccountServiceManager = Annotated[
     AccountService, Depends(factory_account_service)
 ]
