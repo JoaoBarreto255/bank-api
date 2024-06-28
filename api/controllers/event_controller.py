@@ -17,4 +17,4 @@ async def event(
     try:
         return event_input.event_action(account_service_manager)
     except HTTPException as error:
-        return Response('0', error.status_code)
+        return Response("0", error.status_code)

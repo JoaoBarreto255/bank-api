@@ -43,7 +43,7 @@ def test_decrement_account_success() -> None:
     assert repository.find_account("bar") is account
     assert account.account_id == "bar"
     assert account.balance == 10
-    
+
     service.decrement_account("bar", 10)
     assert repository.find_account("bar") is account
     assert account.account_id == "bar"
