@@ -3,7 +3,7 @@ Test Module for account repository.
 """
 
 from api.models.account import Account
-from .account_repository import AccountRepository
+from api.repositories.account_repository import AccountRepository
 
 
 def test_account_repository_get_instance() -> None:
